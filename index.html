@@ -108,11 +108,15 @@
   .badge:hover{background:#dbeafb}
   .time{font-size:12px;color:var(--ink2)}
   .cols{display:grid;grid-template-columns:5fr 7fr;gap:40px;align-items:start}
+  .shot-col{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
   @media(max-width:980px){.cols{grid-template-columns:1fr}}
 
   .ph{aspect-ratio:16/9;border:2px dashed #c9d9e8;border-radius:16px;background:#f4f8fb;
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:18px}
   .ph .ico{font-size:32px}.ph .t{font-size:15px;font-weight:600;color:var(--blue-deep)}.ph .s{font-size:12px;color:var(--ink2)}
+  .shot-img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:16px;border:1px solid var(--lt-bd);background:#fff;display:block}
+  .shot-row3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%}
+  .shot-img-v{width:100%;aspect-ratio:9/19.5;object-fit:cover;border-radius:12px;border:1px solid var(--lt-bd);background:#fff;display:block}
 
   .body p{font-size:16.5px;color:var(--ink)}
   .note{font-size:13px;color:var(--ink2);background:#f4f9ff;border-left:3px solid #7fb2e0;padding:9px 13px;border-radius:0 8px 8px 0;margin-top:12px}
@@ -253,10 +257,9 @@
         <span class="time mono">2025.10 – 2026.05</span>
       </div>
       <div class="cols">
-        <div class="ph">
-          <div class="ico">📹</div>
-          <div class="t">演示视频 / 截图占位</div>
-          <div class="s">智能问答主界面或图谱可视化录屏（16:9）</div>
+        <div class="shot-col">
+          <img class="shot-img" src="images/p1-bishi.png" alt="医疗问答系统 · 毕设截图">
+          <div style="margin-top:12px"><a class="btn btn-solid" href="https://www.feicut.com/fv/FV1bodmkz2xv?cm=1&fc=12&p=0" target="_blank" rel="noopener">🎬 查看演示视频（飞咔）</a></div>
         </div>
         <div class="body">
           <p>针对通用大模型在医疗场景的"幻觉"问题，独立设计并实现图谱增强型 RAG 问答系统。用 Python 从 Huatuo-26M 数据集抽取实体关系，构建 <b>50 万+ 实体、125 万+ 关系边</b>的医疗知识图谱，以 MySQL 轻量化存储替代 Neo4j；按"图谱检索 → 结构化 Prompt → 通义千问生成"链路抑制幻觉。支持文本+图片多模态问答、ECharts 图谱可视化（BFS 最短路径）。Spring Boot + Vue3 全栈实现，70 个测试用例全过。</p>
@@ -292,10 +295,9 @@
       <div class="ptitle">基于 Vector RAG 的智能医疗问答助手</div>
       <div class="pmeta"><span class="badge" onclick="openModal('sovoModal')">作品展二等奖 · 点我看证书</span><span class="time mono">2025.07 – 2025.10</span></div>
       <div class="cols">
-        <div class="ph">
-          <div class="ico">📹</div>
-          <div class="t">演示视频 / 截图占位</div>
-          <div class="s">Gradio 问答界面录屏（16:9）</div>
+        <div class="shot-col">
+          <img class="shot-img" src="images/p2-rag.png" alt="Vector RAG 医疗问答助手 · 用药管理模块">
+          <div style="margin-top:12px"><a class="btn btn-solid" href="https://www.feicut.com/fv/FV1bodmkz2xv?cm=1&fc=12&p=0" target="_blank" rel="noopener">🎬 查看演示视频（飞咔）</a></div>
         </div>
         <div class="body">
           <p>实践学期独立作品。从 Huatuo26M 数据集清洗出约 18 万条医患问答对、切块为 183 万文本片段，用 <b>text2vec-base-chinese</b> 编码为 384 维向量、建 FAISS 索引（GPU 加速）实现毫秒级检索，融合通义千问 API 流式输出。基于 Gradio 做「医疗咨询 / 用药管理 / 健康档案 / 对话历史」四模块，提示词约束模型按症状分析、用药指导等 7 个结构化模块输出，规避幻觉。</p>
@@ -330,11 +332,7 @@
       <div class="ptitle">十万级订单数据分析平台</div>
       <div class="pmeta"><span class="badge">多管理员轮班 · Cloudflare Pages</span><span class="time mono">2026.07 – 至今</span></div>
       <div class="cols">
-        <div class="ph">
-          <div class="ico">🖼</div>
-          <div class="t">系统截图占位</div>
-          <div class="s">主订单分析 / 审核界面截图（16:9）</div>
-        </div>
+        <img class="shot-img" src="images/p3-order.png" alt="订单数据分析平台截图">
         <div class="body">
           <p>为粉丝社群活动运营方开发的浏览器端数据审核平台：管理员上传微店 / 来豹接龙导出的 Excel，浏览器本地解析，自动完成主订单统计、碎卡兑换审核与集赞礼兑核对；多管理员分班协作，通过 Cloudflare Workers KV 云端同步两套审核小表，全程修改留痕、可追溯。</p>
           <div class="note">✅ 已被社群实际采纳：主订单 6.8 万行本地解析不卡 UI，叠加碎卡兑换、集赞礼兑等多 Sheet（约 1 万行），自动生成查询表替代人工对账。</div>
@@ -373,10 +371,10 @@
       <div class="ptitle">抽抽乐（盲盒抽卡）记录器</div>
       <div class="pmeta"><span class="badge">v6.1 · 已上线</span><span class="time mono">2026.03 – 至今</span></div>
       <div class="cols">
-        <div class="ph">
-          <div class="ico">🖼</div>
-          <div class="t">三端截图占位</div>
-          <div class="s">网页版 / 小程序版 / APK 截图并排</div>
+        <div class="shot-row3">
+          <img class="shot-img-v" src="images/p4-1-home.jpg" alt="抽抽乐记录器 · 首页">
+          <img class="shot-img-v" src="images/p4-2-record.jpg" alt="抽抽乐记录器 · 记录页">
+          <img class="shot-img-v" src="images/p4-3-data.jpg" alt="抽抽乐记录器 · 数据中心">
         </div>
         <div class="body">
           <p>面向粉丝社群的盲盒抽卡记录工具，已迭代至 v6.1，累计 1,000+ 用户。支持手动点选、OCR 识别、文本批量导入三种录入方式，内置 88 张卡牌图鉴、个人 9 档与全服 7 档满赠追踪。一套产品同时发布网页版、微信小程序版和 Android APK 版——APK 用命令行工具链自打包，不依赖 Android Studio，包体仅 132KB。</p>
@@ -411,11 +409,7 @@
       <div class="ptitle">Orbit Life · 生活工作台</div>
       <div class="pmeta"><span class="badge">Web + Android 双端 · 已上线</span><span class="time mono">2026.08 – 至今</span></div>
       <div class="cols">
-        <div class="ph">
-          <div class="ico">🌌</div>
-          <div class="t">双端截图占位</div>
-          <div class="s">Web 端仪表盘 / 手机端 APK 截图并排（16:9）</div>
-        </div>
+        <img class="shot-img" src="images/p5-workspace.png" alt="生活工作台 · Orbit Life 首页">
         <div class="body">
           <p>为个人使用打造的纯前端生活仪表盘：番茄钟专注 + 12 个记录模块（灵感 / 体感 / 宠物 / 菜谱 / 衣橱 / 观影 / 好物 / 人情 / 社交 / 旅行 / 通勤），全部数据 <b>localStorage 本地存储 + JSON 一键备份</b>。零第三方依赖的单文件 PWA，同时用命令行工具链打包成原生 Android APK——<b>零权限、纯离线</b>，WebView 虚拟域名规避 <code>file://</code> 下 localStorage 被系统清理的问题，包体仅 70KB。</p>
           <div class="nums">
